@@ -1,0 +1,64 @@
+---
+title: "Readme"
+author: "Saurav Bakshi"
+date: "6 March 2016"
+output: html_document
+---
+
+This is an R Markdown document to describe the run_analysis.R which performs Data Cleaning and Tidying process on HAR Dataset which has been downloaded from:
+https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+
+STEPS OF ANALYSIS
+----------------------
+The following steps were performed to generate the required tidy dataset
+
+
+1. Download and store the dataset in working directory
+
+2. Read each of the following data sets
+  i. Features
+  ii. activity.labels
+  iii. Train
+    a. xdata
+    b. ydata
+    c. subject data
+  iv.  Test
+    a. xdata
+    b. ydata
+    c. subject data
+    
+
+3. Merge train and test datasets as rowID, activity (ydata), all the columns from xdata
+4. Merge train and test datasets in combined datasets and sort it based on rowID
+5. Filter out the columns having mean and std in the column names and generate a new dataset
+6. Final step is to group the dataset based on rowID and activity and summarize by calculating means.The following datasets are saved by this script
+
+A Mean.csv
+
+B Filtered.csv
+
+C Train_Test_Combined.csv
+
+D Test.csv
+
+E Train.csv
+
+The above datasets are produced for step-by-step testing purpose. The respective code can be commented out if they are not required.
+
+The final output for the run_analysis.R is meanData.txt.
+
+CHANGES REQUIRED IN THE CODE FOR PROCESSING
+--------------------------------------------
+A slight change is required in the script is the following code:
+setwd("C:/Users/saurav/Documents/R/SmartPhoneData")
+
+The above code is required to be changes to location where HAR dataset has been stored and unzipped. Also it is required to be ensured that directory/folder stucture has not been changed in the unzipped dataset because of assumptions made by the code in terms of the underlying folder structure to extract various required datasets.
+
+STEPS TO EXECUTE THE CODE
+-----------------------------
+1. Store the HAR Dataset as per the current folder structure
+2. Change the code as per above instruction - replace the folder path to where the HAR dataset has been stored and unzipped.
+3. Run the code
+4. meanData.txt will be produced in the same folder as HAR Dataset.
+
+
